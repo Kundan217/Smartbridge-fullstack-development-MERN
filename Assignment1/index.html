@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        p {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 2px solid black;
+            background-color: lightgray;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: gray;
+            color: white;
+        }
+
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        form {
+            width: 50%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            width: 80%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        .submit-btn {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">
+        CATS
+    </h1>
+    <p>This delightful image captures five curious kittens, each with unique fur patterns and colors, venturing out onto a vibrant green lawn. The kittens appear to be exploring their surroundings, their wide, innocent eyes filled with wonder and curiosity. The orange tabby on the left contrasts beautifully with the gray and black-striped siblings beside it, while the brown tabby on the right adds warmth to the group’s color palette. Their tiny paws gently press into the grass, hinting at their cautious yet adventurous spirit as they experience the world outside for perhaps the first time.</p>
+
+    <figure class="image">
+      <img src="https://pawpurrfect.co/wp-content/uploads/2022/05/main-900x600-1-900x600-1-900x600-1-900x600.jpg" 
+           alt="A group of adorable kittens exploring the lush green grass." style="height: 300px;">
+      <figcaption>
+        A group of adorable kittens exploring the lush green grass.
+      </figcaption>
+    </figure>
+
+    <button class="button">Click Me</button>
+    
+    <table>
+        <tr>
+            <th>Likes</th>
+            <th>Dislikes</th>
+            <th>Fun Facts</th>
+        </tr>
+        <tr>
+            <td>Chasing toys</td>
+            <td>Loude noises</td>
+            <td>Cats can sleep 16 hours a day</td>
+        </tr>
+        <tr>
+            <td>Sunbathing</td>
+            <td>Water</td>
+            <td>They have a unique "meow" for their owners</td>
+        </tr>
+
+        <tr>
+            <td>Climbing</td>
+            <td>Being ignored</td>
+            <td>Cats can jump up to six times their body length</td>
+        </tr>
+    </table>
+    
+    <form>
+        <input type="text" placeholder="Enter your name">
+        <input type="email" placeholder="Enter your email">
+        <button class="submit-btn">Submit</button>
+    </form>
+</body>
+</html>
