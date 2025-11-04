@@ -1,0 +1,150 @@
+Q1.Write a React component called TextUpdater with an
+input field. Use the useState hook to update and display
+the text as the user types.
+
+Code
+
+import React, { useState } from 'react';
+
+const TextUpdater = () => {
+  const [text, setText] = useState('');
+
+  return (
+    <div className="p-4 max-w-md mx-auto">
+      <input
+        type="text"
+        className="border p-2 w-full rounded"
+        placeholder="Type something..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <p className="mt-4 text-lg font-semibold">You typed: {text}</p>
+    </div>
+  );
+};
+
+export default TextUpdater;
+
+Q2.Create a React form with a text input and a submit button.
+When submitted, log the input value to the console.
+
+Code:
+
+import React, { useState } from 'react';
+
+const SimpleForm = () => {
+  const [input, setInput] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Submitted value:', input);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto">
+      <input
+        type="text"
+        className="border p-2 w-full rounded mb-2"
+        placeholder="Enter text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button
+        type="submit"
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+      >
+        Submit
+      </button>
+    </form>
+  );
+};
+
+export default SimpleForm;
+
+Q3.Build a UserCard component that takes name and email
+as props and displays them inside a styled card using
+Tailwind CSS.
+
+import React from 'react';
+
+const UserCard = ({ name, email }) => {
+  return (
+    <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg p-6">
+      <h2 className="text-xl font-bold mb-2">{name}</h2>
+      <p className="text-gray-600">{email}</p>
+    </div>
+  );
+};
+
+export default UserCard;
+
+Q4.Create a Button component with Tailwind CSS that has a
+blue background, white text, rounded corners, and a hover
+effect that darkens the button. Additionally, add a click event
+that logs "Button clicked!" to the console.
+
+import React from 'react';
+
+const CustomButton = () => {
+  const handleClick = () => {
+    console.log('Button clicked!');
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+    >
+      Click Me
+    </button>
+  );
+};
+
+export default CustomButton;
+
+Q5.Develop a LoginForm component with email and password
+fields using useState for form handling and Tailwind CSS
+for styling. Display an alert with the entered details when
+submitted.
+
+import React, { useState } from 'react';
+
+const LoginForm = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Email: ${email}\nPassword: ${password}`);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="p-6 max-w-md mx-auto bg-white shadow-md rounded">
+      <h2 className="text-2xl font-bold mb-4">Login</h2>
+      <input
+        type="email"
+        placeholder="Email"
+        className="w-full border p-2 mb-4 rounded"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        className="w-full border p-2 mb-4 rounded"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+      <button
+        type="submit"
+        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+      >
+        Login
+      </button>
+    </form>
+  );
+};
+
+export default LoginForm;
