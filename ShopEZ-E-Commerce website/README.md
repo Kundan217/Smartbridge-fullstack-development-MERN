@@ -5,7 +5,7 @@
 [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 
-**ShopNest** is a modern, full-featured e-commerce platform built with the MERN stack (MongoDB, Express.js, React, Node.js). It provides a seamless shopping experience for users and a powerful administrative dashboard for managing products, orders, and users. 
+**ShopEZ** is a modern, full-featured e-commerce platform built with the MERN stack (MongoDB, Express.js, React, Node.js). It provides a seamless shopping experience for users and a powerful administrative dashboard for managing products, orders, and users. 
 
 --- 
 
