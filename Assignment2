@@ -1,0 +1,114 @@
+JavaScript Assignment:
+
+
+1: Declare a variable age and assign it a value of 25. Then,
+declare another variable is Adult that is true if age is 18 or
+more, otherwise false.
+
+2: Given x = 10 and y = 5, perform the following operations
+and store the results:
+• Addition
+• Multiplication
+• Modulus
+
+3: Write a program that checks if a number n is even or odd and
+stores the result in a variable.
+
+4: Write a for loop to store numbers from 1 to 5 in an array.
+
+5: Write a function square that takes a number as input and
+returns its square.
+
+Javascript and HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Tasks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    input, button {
+      margin: 5px 0;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>1. Check if Age is Adult</h3>
+  <input type="number" id="ageInput" placeholder="Enter your age">
+  <button onclick="checkAge()">Check</button>
+  <p id="result1"></p>
+
+  <h2>2. Operations on x=10 and y=5</h2>
+  <button onclick="mathOperations()">Show Operations</button>
+  <p id="operationsResult"></p>
+
+  <h2>3. Check Even or Odd</h2>
+  <input type="number" id="numInput" placeholder="Enter a number">
+  <button onclick="checkEvenOdd()">Check</button>
+  <p id="evenOddResult"></p>
+
+  <h2>4. Store Numbers from 1 to 5</h2>
+  <button onclick="storeNumbers()">Store in Array</button>
+  <p id="arrayResult"></p>
+
+  <h2>5. Square a Number</h2>
+  <input type="number" id="squareInput" placeholder="Enter a number">
+  <button onclick="showSquare()">Square It</button>
+  <p id="squareResult"></p>
+
+  <script>
+    // Task 1
+    function checkAge() {
+    let age = parseInt(document.getElementById("ageInput").value);
+    
+    if (isNaN(age)) {
+      document.getElementById("result1").innerText = "Please enter a valid age.";
+      return;
+    }
+
+    let isAdult = age >= 18;
+    document.getElementById("result1").innerText = "Is adult: " + isAdult;
+  }
+
+    // Task 2
+    function mathOperations() {
+      let x = 10, y = 5;
+      let addition = x + y;
+      let multiplication = x * y;
+      let modulus = x % y;
+      document.getElementById("operationsResult").innerText =
+        "Addition: " + addition + ", Multiplication: " + multiplication + ", Modulus: " + modulus;
+    }
+
+    // Task 3
+    function checkEvenOdd() {
+      let n = parseInt(document.getElementById("numInput").value);
+      let result = (n % 2 === 0) ? "Even" : "Odd";
+      document.getElementById("evenOddResult").innerText = "The number is: " + result;
+    }
+
+    // Task 4
+    function storeNumbers() {
+      let numbers = [];
+      for (let i = 1; i <= 5; i++) {
+        numbers.push(i);
+      }
+      document.getElementById("arrayResult").innerText = "Array: [" + numbers.join(", ") + "]";
+    }
+
+    // Task 5
+    function showSquare() {
+      let num = parseInt(document.getElementById("squareInput").value);
+      let square = num * num;
+      document.getElementById("squareResult").innerText = "Square: " + square;
+    }
+  </script>
+
+</body>
+</html>
