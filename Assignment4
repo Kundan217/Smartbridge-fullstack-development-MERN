@@ -1,0 +1,215 @@
+1. React.js Landing Page (with Tailwind CSS)**
+
+Create your React project:
+```bash
+npx create-react-app frontend
+cd frontend
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+**Configure Tailwind in `tailwind.config.js`:**
+```js
+content: ["./src/**/*.{js,jsx,ts,tsx}"]
+```
+
+**Add Tailwind to `src/index.css`:**
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+**Example Components:**
+
+- **Navbar:**
+```jsx
+// components/Navbar.jsx
+export default function Navbar() {
+  return (
+    <nav className="bg-gray-800 text-white p-4 flex justify-between">
+      <div className="font-bold">MyStore</div>
+      <div className="space-x-4">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  );
+}
+```
+
+- **Hero Section:**
+```jsx
+// components/Hero.jsx
+export default function Hero() {
+  return (
+    <section className="text-center p-10 bg-blue-100">
+      <h1 className="text-4xl font-bold">Welcome to MyStore</h1>
+      <p className="mt-4">Shop the best products at the best prices.</p>
+    </section>
+  );
+}
+```
+
+- **Product Section:**
+```jsx
+// components/ProductList.jsx
+const products = [
+  { id: 1, name: "Product A", price: "$20", image: "https://via.placeholder.com/150" },
+  { id: 2, name: "Product B", price: "$30", image: "https://via.placeholder.com/150" },
+];
+
+export default function ProductList({ onClick }) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-6">
+      {products.map(p => (
+        <div key={p.id} className="border p-4 rounded shadow" onClick={() => onClick(p)}>
+          <img src={p.image} alt={p.name} className="w-full h-40 object-cover" />
+          <h2 className="text-xl mt-2">{p.name}</h2>
+          <p className="text-gray-600">{p.price}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+- **Footer:**
+```jsx
+// components/Footer.jsx
+export default function Footer() {
+  return (
+    <footer className="bg-gray-900 text-white text-center p-4 mt-10">
+      <p>&copy; 2025 MyStore</p>
+      <div className="space-x-4 mt-2">
+        <a href="#" className="hover:text-blue-400">Facebook</a>
+        <a href="#" className="hover:text-blue-400">Twitter</a>
+      </div>
+    </footer>
+  );
+}
+
+2. Product Details Page (React Router)
+
+Install router:
+```bash
+npm install react-router-dom
+```
+
+Setup routes:
+```jsx
+// App.jsx
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Hero from './components/Hero';
+import ProductList from './components/ProductList';
+import ProductDetails from './components/ProductDetails';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import { useState } from 'react';
+
+export default function App() {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Hero />
+            <ProductList onClick={setSelectedProduct} />
+          </>
+        } />
+        <Route path="/details" element={<ProductDetails product={selectedProduct} />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
+}
+```
+
+**Product Details Component:**
+```jsx
+// components/ProductDetails.jsx
+import { useNavigate } from 'react-router-dom';
+
+export default function ProductDetails({ product }) {
+  const navigate = useNavigate();
+
+  if (!product) {
+    navigate('/');
+    return null;
+  }
+
+  return (
+    <div className="p-6">
+      <img src={product.image} alt={product.name} className="w-60 mx-auto" />
+      <h2 className="text-3xl mt-4">{product.name}</h2>
+      <p className="text-gray-600">{product.price}</p>
+      <button onClick={() => navigate('/')} className="mt-4 px-4 py-2 bg-blue-600 text-white rounded">Back</button>
+    </div>
+  );
+}
+
+3. Express Server on Port 5000**
+
+```bash
+mkdir backend
+cd backend
+npm init -y
+npm install express cors
+```
+
+**`index.js`:**
+```js
+const express = require('express');
+const app = express();
+const cors = require('cors');
+
+app.use(cors());
+app.use(express.json());
+
+app.listen(5000, () => {
+  console.log("Server running on http://localhost:5000");
+});
+
+4. `/welcome` Route
+
+Add to `index.js`:
+```js
+app.get('/welcome', (req, res) => {
+  res.json({ message: "Welcome to Express!" });
+});
+
+5. In-Memory User Management
+
+Add in `index.js`:
+```js
+let users = [];
+
+app.get('/users', (req, res) => {
+  res.json(users);
+});
+
+app.post('/users', (req, res) => {
+  const user = { id: Date.now().toString(), ...req.body };
+  users.push(user);
+  res.status(201).json(user);
+});
+
+app.put('/users/:id', (req, res) => {
+  const id = req.params.id;
+  const index = users.findIndex(u => u.id === id);
+  if (index !== -1) {
+    users[index] = { ...users[index], ...req.body };
+    res.json(users[index]);
+  } else {
+    res.status(404).json({ message: "User not found" });
+  }
+});
+
+app.delete('/users/:id', (req, res) => {
+  users = users.filter(u => u.id !== req.params.id);
+  res.status(204).send();
+});
