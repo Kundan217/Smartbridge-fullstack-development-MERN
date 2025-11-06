@@ -58,7 +58,7 @@ To get a local copy up and running, follow these simple steps.
 
 1.  **Clone the Repository**
     ```bash
-    git clone [https://github.com/singhsuhas77/ShopEZ-MERN_Full_Stack_E-Commerce_Website.git](https://github.com/singhsuhas77/ShopNest-MERN_Full_Stack_E-Commerce_Website.git)
+    git clone [https://github.com/Kundan217/Smartbridge-fullstack-development-MERN.git](https://github.com/Kundan217/Smartbridge-fullstack-development-MERN.git)
     cd ShopEZ-MERN_Full_Stack_E-Commerce_Website
     ```
 
