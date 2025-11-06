@@ -20,7 +20,7 @@ const commonFeatureRouter = require("./routes/common/feature-routes");
 //create a separate file for this and then import/use that file here
 
 // Load MongoDB URI from environment variables
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/shopnest";
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/shopEZ";
 
 mongoose
   .connect(MONGO_URI)
